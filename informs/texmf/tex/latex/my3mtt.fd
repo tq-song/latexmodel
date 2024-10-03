@@ -1,0 +1,27 @@
+%%
+%% This is file `my3mtt.fd',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% mtfonts.fdd  (with options: `MY3mtt,mtplus')
+%% 
+%% Copyright 1996 1997 Frank Mittelbach and David Carlisle.
+%%
+%% Development of this package was commissioned by Y&Y Inc.
+%% http://www.yandy.com
+%% This package may be distributed under the terms of the LaTeX Project Public
+%% License, as described in lppl.txt in the base LaTeX distribution.
+%% Either version 1.0 or, at your option, any later version.
+%%
+\ProvidesFile{my3mtt.fd}
+ [1997/03/14 v1.0c
+ Mathtime Encoding 3
+  (FMi)]
+\DeclareFontFamily{MY3}{mtt}{}
+\DeclareFontShape{MY3}{mtt}{m}{n}{<->MTEX}{}
+\DeclareFontShape{MY3}{mtt}{b}{n}{<->MTEXB}{}
+\DeclareFontShape{MY3}{mtt}{ub}{n}{<->MTEXH}{}
+\endinput
+%%
+%% End of file `my3mtt.fd'.

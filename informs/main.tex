@@ -1,0 +1,457 @@
+% \documentclass[mnsc,blindrev]{informs4}
+\documentclass[mnsc,dblanonrev]{informs3test}
+
+\OneAndAHalfSpacedXI
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bbm}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{booktabs}
+\usepackage{physics}
+\usepackage{appendix}
+\usepackage[numbers]{natbib}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{cleveref}
+\usepackage{url}
+\usepackage{fontspec}
+\usepackage{silence}
+
+\definecolor{strcolor}{rgb}{0.6, 0.2, 0.6}
+\definecolor{commentcolor}{rgb}{0.3125, 0.5, 0.3125}
+
+% \newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{claim}{Claim}
+\newtheorem{assumption}{Assumption}
+
+\usepackage{natbib}
+\bibpunct[, ]{(}{)}{,}{a}{}{,}%
+\def\bibfont{\fontsize{8}{9.5}\selectfont}%
+\def\bibsep{0pt}%
+\def\bibhang{16pt}%
+\def\newblock{\ }%
+\def\BIBand{and}%
+
+% TBD
+%\MANUSCRIPTNO{} % When the article is logged in and DOI assigned to it,
+
+\begin{document}
+	%%%%%%%%%%%%%%%%
+	
+% TBD
+% \setcounter{page}{1} %
+% \VOL{00}%
+% \NO{0}%
+% \MONTH{Xxxxx}%
+% \YEAR{2017}%
+% \FIRSTPAGE{1}%
+% \LASTPAGE{16}%
+% \FIRSTPAGEAIA{1}%
+% \LASTPAGEAIA{16}%
+\def\COPYRIGHTHOLDER{INFORMS}%
+\def\COPYRIGHTYEAR{2017}%
+\def\DOI{\fontsize{7.5}{9.5}\selectfont\sf\bfseries\noindent https://doi.org/10.1287/opre.2017.1714\CQ{Word count = 9740}}
+%\def\RECEIVED{November 1, 2016}
+%\def\REVISED{June 22, 2017; October 6, 2017}
+%\def\ACCEPTED{November 15, 2017}
+% \PUBONLINEAIA{}
+\RUNAUTHOR{Zhen et~al.}
+\RUNTITLE{Adjustable Robust Optimization via Fourier-Motzkin Elimination}
+\TITLE{Adjustable Robust Optimization via Fourier-Motzkin Elimination}
+\ARTICLEAUTHORS{
+	\AUTHOR{Jianzhe Zhen, Dick den Hertog}
+	\AFF{Department of Econometrics and Operations Research,
+	Tilburg University}
+	\AUTHOR{Melvyn Sim}
+	\AFF{NUS Business School, National University of
+	Singapore}
+	%\AUEXTRA{$^{*}$Corresponding author}
+	%\AFFmail{{\bf Contact:} j.zhen@tilburguniversity.edu,
+	%d.denhertog@tilburguniversity.edu,\\			melvynsim@nus.edu.sg}%
+}
+%\ARTICLEINFO{\textbf{Received:} November 1, 2016\\ \textbf{Revised:} June 22, 2017; October 6, 2017\\ \textbf{Accepted:} November 15, 2017\\ \textbf{Published Online in Articles in Advance:}}
+
+\ABSTRACT{We demonstrate how adjustable robust optimization (ARO) problems with fixed recourse can be {cast} as static robust optimization problems via Fourier-Motzkin elimination (FME). Through the lens of FME, we characterize the structures of the optimal decision rules for a broad class of ARO problems. A scheme based on a blending of classical FME and a simple Linear Programming technique that can efficiently remove redundant constraints, is developed to reformulate ARO problems. This generic reformulation technique enhances the classical approximation scheme via decision rules, and enables us to solve adjustable optimization problems to optimality. We show via numerical experiments that, for small-size ARO problems our novel approach finds the optimal solution. For moderate or large-size instances, we eliminate a subset of the adjustable variables, which improves the solutions obtained from linear decision rules.}
+
+%\FUNDING{The research of the first author is supported by NWO Grant 613.001.208. The third author acknowledges the funding support from the Singapore Ministry of Education Social Science Research Thematic Grant MOE2016-SSRTG-059.}
+
+\SUBJECTCLASS{Fourier-Motzkin elimination; adjustable robust optimization; linear decision rules; redundant constraint identification.}
+
+\AREAOFREVIEW{Optimization.}
+
+\KEYWORDS{}
+	
+\maketitle
+	
+\section{Introduction}
+\noindent In recent years, robust optimization has been experiencing an explosive growth and has now become one of the dominant approaches to address decision making under uncertainty. In robust optimization, uncertainty is described by a distribution free uncertainty set, which is typically a conic representable bounded convex set (see, for instance, \cite{gl97,gol98,bn98,bn99,bn00,bs04,bb09,bbc11}). Among other benefits, robust optimization offers a computationally viable methodology for immunizing mathematical optimization models against parameter uncertainty by\vadjust{\pagebreak} replacing probability distributions with uncertainty sets as fundamental primitives. It has been successful in providing computationally scalable methods for a wide variety of optimization problems. 
+
+\section{Footnotes and Endnotes}\label{footsection1}
+INFORMS journals do not support the use of footnotes within the article text. Any footnoted material must be converted to endnotes. Endnotes should be written as complete sentences. Endnotes are numbered sequentially according to their appearance in the article text using superscript Arabic numerals. Endnote numbers should generally be placed at the end of a sentence and should be placed outside all punctuation.
+
+
+
+		
+%		\vspace*{12pt}
+		\section{Conclusions} \label{sec:con}
+		We propose a generic FME approach for solving ARO problems with fixed recourse to optimality. Through the lens of FME, we characterize the structures of the ODRs for a broad class of ARO problems. We extend the approach of \cite{bsz17} for ADRO problems. Via numerical experiments, we show that for small-size ARO problems our approach finds the optimal solution, and for moderate to large-size instances, we successively improve the approximated solutions obtained from LDRs. 
+				
+	     On a theoretical level, one immediate future research direction would be to characterize the structures of the ODRs for multistage problems, e.g., see \cite{bip10,iss13}.  {Another potential direction would be to extend our FME approach to ARO problems with integer adjustable variables or non-fixed recourse.}
+		
+		On a numerical level, we would like to investigate the performance of Algorithm with finite adaptability approaches or other decision rules on solving ARO problems.  Moreover, many researchers have proposed alternative approaches for computing polytopic projections and identifying redundant constraints in linear programming problems. For instance, \cite{hll92} discusses the efficiency of three alternative procedures for computing polytopic projections, and introduces a new RCI method; \cite{ps10} compares the efficiency of five RCI methods. Another potential direction would be to adapt and combine the existing alternative procedures to further improve the efficiency of our proposed approach.
+		
+		
+		
+		% References here (outcomment the appropriate case)
+\begin{appendices}
+
+	dasfgsdff
+
+\end{appendices}	
+
+
+% Acknowledgments here
+\ACKNOWLEDGMENT{The authors are grateful to the associate editor and two anonymous referees for valuable comments on an earlier version of the paper. The research of the first author is supported by NWO Grant 613.001.208. The third author acknowledges the funding support from the Singapore Ministry of Education Social Science Research Thematic Grant MOE2016-SSRTG-059. Disclaimer: Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not reflect the views of the Singapore Ministry of Education or the Singapore Government.}	
+		% CASE 1: BiBTeX used to constantly update the references
+		%   (while the paper is being written).
+		%\bibliographystyle{ormsv080} % outcomment this and next line in Case 1
+		%\bibliography{<your bib file(s)>} % if more than one, comma separated
+		
+		% CASE 2: BiBTeX used to generate mypaper.bbl (to be further fine tuned)
+		%\input{mypaper.bbl} % outcomment this line in Case 2
+		
+		%If you don't use BiBTex, you can manually itemize references as shown below.
+
+%\newpage
+
+\begin{thebibliography}{}%
+			\bibitem[{Ardestani-Jaafari and Delage(2016a)}]{ad16a}
+			Ardestani-Jaafari, A., E. Delage (2016a)
+			Linearized robust counterparts of two-stage robust optimization problems with applications in operations management. Available at: { \url{optimization-online.org/DB_FILE/2016/03/5388.pdf}}.
+						
+			\bibitem[{Ardestani-Jaafari and Delage(2016b)}]{ad16b}
+			Ardestani-Jaafari, A., E. Delage (2016b)
+			Robust optimization of sums of piecewise linear functions with application to inventory problems.  {\it Operations Research} 64(2):474--494.
+
+			\bibitem[{Bemporad et~al.(2003)}]{bbm03}
+			Bemporad, A., F. Borrelli, M. Morari (2003)
+			Min-max control of constrained uncertain discrete-time linear systems.
+			{\it IEEE Transactions Automatic Control} 48(9):1600--1606.	
+			
+			\bibitem[{Ben-Ameur et~al.(2016)}]{bwoz16}
+			Ben-Ameur, W., G. Wang, A. Ouorou, M. Zotkiewicz  (2016)
+			Multipolar Robust Optimization. Available at: { \url{arxiv.org/pdf/1604.01813.pdf}}.	
+			
+						
+			\bibitem[{Ben-Tal et~al.(2009)}]{ben09}
+			Ben-Tal, A., L. El Ghaoui,   A. Nemirovski (2009)
+			{\it Robust Optimization}.
+			Princeton Series in Applied Mathematics (Princeton University Press, Princeton, NJ).
+
+			\bibitem[{Ben-Tal et~al.(2015)}]{bdv15}
+			Ben-Tal, A., D. den Hertog, J.P. Vial (2015)
+			Deriving robust counterparts of nonlinear uncertain inequalities.
+			{\it Mathematical Programming} 149(1):265--299.
+			
+
+			\bibitem[{Ben-Tal et~al.(2016)}]{beg16}
+			Ben-Tal, A., O. El Housni, V. Goyal (2016)
+			A tractable approach for designing piecewise affine policies in dynamic robust optimization. Available at: \url{optimization-online.org/DB_FILE/2016/07/5557.pdf}.
+			
+						
+			\bibitem[{Ben-Tal et~al.(2004)}]{bggn04}
+			Ben-Tal, A., A. Goryashko, E. Guslitzer, A. Nemirovski (2004)
+			Ajustable robust solutions of uncertain linear programs. {\it Mathematical Programming} 99:351--376.
+			
+			\bibitem[{Ben-Tal and Nemirovski(1998)}]{bn98}
+			Ben-Tal, A., A. Nemirovski (1998)
+			Robust convex optimization. {\it Mathematics of Operations Research} 23(4):769--805.
+			
+			\bibitem[{Ben-Tal and Nemirovski(1999)}]{bn99}
+			Ben-Tal, A., A. Nemirovski (1999)
+			Robust solutions of uncertain linear programs. {\it Operations Research Letters} 25:1--13.
+			
+			\bibitem[{Ben-Tal and Nemirovski(2000)}]{bn00}
+			Ben-Tal, A., A. Nemirovski (2000)
+			Robust solutions of linear programming problems contaminated with uncertain data. {\it Mathematical Programming} 88(3):411--424.
+			
+			
+			\bibitem[Bertsimas and Brown(2009)]{bb09}
+			Bertsimas, D., D. Brown (2009)
+			Constructing uncertainty sets for robust linear optimization. {\it Operations Research} 57(6):1483--1495.
+			
+			\bibitem[Bertsimas et~al.(2011)]{bbc11}
+			Bertsimas, D.,  D. Brown,  C. Caramanis (2011).
+			Theory and applications of robust optimization. {\it SIAM Review}, 53(3):464--501.
+			
+			
+			\bibitem[Bertsimas and Caramanis(2010)]{bc10}
+			Bertsimas, D.,   C. Caramanis (2010).
+			Finite adaptability for linear optimization. {\it IEEE Transactions on Automatic Control}, 55(12):1751--2766.
+			
+			\bibitem[{Bertsimas and Dunning(2016)}]{bd16a}
+			Bertsimas, D., I. Dunning (2016)
+			Multistage robust mixed integer optimization with adaptive partitions.  {\it Operations Research} 64(4):980--998.
+
+			\bibitem[{Bertsimas et~al.(2015)}]{bdl15}
+			Bertsimas, D., I. Dunning, M. Lubin (2015)
+			Reformulation versus cutting-planes for robust optimization.  {\it Computational Management Science} 13(2):195--217.
+			
+			
+			\bibitem[{Bertsimas and Georghiou(2015)}]{bg15}
+			Bertsimas, D., A. Georghiou (2015)
+			Design of near optimal decision rules in multistage adaptive mixed-integer
+			optimization. {\it Operations Research} 63(3):610--627.		
+			
+			\bibitem[{Bertsimas and Goyal(2012)}]{bg12}
+			Bertsimas, D., V. Goyal (2012)
+			On the power and limitations of affine policies in two-stage adaptive optimization. {\it   Mathematical Programming} 134(2):491--531.
+			
+			\bibitem[Bertsimas et~al.(2010)]{bip10}
+			Bertsimas, D., D. Iancu, P. Parrilo (2010)
+			Optimality of affine policies in multistage robust optimization.  {\it Mathematics of Operations Research} 35(2):363--394.
+			
+			\bibitem[Bertsimas et~al.(2011)]{bip11}
+			Bertsimas, D., D. Iancu, P. Parrilo (2011)
+			A hierarchy of near-optimal policies for multistage adaptive optimization. {\it IEEE Transactions on Automatic Control} 56(12):2809--2824.
+			
+			
+			\bibitem[{Bertsimas and de Ruiter(2016)}]{bd16}
+			Bertsimas, D.,  F. de Ruiter (2016)
+			Duality in two-stage adaptive linear optimization: faster computation and stronger bounds. {\it  INFORMS Journal on Computing} 28(3):500--511.
+			
+			\bibitem[{Bertsimas and Sim(2004)}]{bs04}
+			Bertsimas, D., M. Sim (2004)
+			The price of robustness. {\it Operations Research} 52(1):35--53.
+			
+			\bibitem[{Bertsimas et~al.(2017)}]{bsz17}
+			Bertsimas, D., M. Sim,  M. Zhang  (2017)
+			A practically efficient approach for solving adaptive distributionally robust linear optimization problems. {\it Management Science}, to appear (available at: { \url{optimization-online.org/DB_FILE/2016/03/5353.pdf}}).
+			
+			\bibitem[{Bertsimas and Tsitsiklis(1997)}]{bt97}
+			Bertsimas, D.,  J. Tsitsiklis (1997)
+			{\it Introduction to Linear Optimization}. Athena Scientific.
+			
+			\bibitem[Birge and Louveaux(1997)]{bl97}
+			Birge, J. R., F. Louveaux (1997)
+			{\it Introduction to Stochastic Programming.} Springer, New York.
+			
+			\bibitem[Breton and El Hachem(1995)]{be95}
+			Breton, M., S. El Hachem (1995)
+			Algorithms for the solution of stochastic dynamic minimax problems. {\it Computational Optimization and Applications} 4:317--345.
+			
+			
+			\bibitem[Caron et~al.(1989)]{cmp89}
+			Caron, R., J. McDonald, C. Ponic (1989)
+			A degenerate extreme point strategy for the classification of linear constraints as redundant or necessary. {\it Journal of Optimization Theory} 62(2):225--237.
+			
+			
+			
+			\bibitem[Chen and Sim(2009)]{cs09}
+			Chen, W., M. Sim (2009)
+			Goal-driven optimization.
+			{\it Operations Research} 57(2):342--357.
+			
+			\bibitem[Chen et~al.(2007)]{css07}
+			Chen, X., M. Sim,  P. Sun (2007)
+			A robust optimization perspective on stochastic programming.
+			{\it Operations Research}, 55(6):1058--1071.
+			
+			\bibitem[Chen et~al.(2008)]{cssz08}
+			Chen, X., M. Sim, P. Sun, J. Zhang (2008)
+			A linear decision-based approximation approach to stochastic programming. {\it Operations Research} 56(2):344--357.
+			
+			\bibitem[Chen and Zhang(2009)]{cz09}
+			Chen, X., Y. Zhang (2009)
+			Uncertain linear programs: extended affinely adjustable robust counterparts. {\it Operations Research} 57(6):1469--1482.
+			
+			\bibitem[Dantzig(1963)]{d63}
+			Dantzig, G. (1963)
+			{\it  Linear Programming and Extensions.} Princeton University Press, Princeton, NJ.
+			
+
+			\bibitem[Delage and Ye(2010)]{dy10}
+			Delage, E., Y. Ye (2010)
+			Distributionally robust optimization under moment uncertainty with application to data-driven problems. {\it Operations Research} 58(3):596--612.
+			
+			\bibitem[Dupacova(1987)]{d87}
+			Dupacova, J. (1987)
+			The minimax approach to stochastic programming and an illustrative application. {\it Stochastics} 20(1):73--88.
+			
+			\bibitem[El Ghaoui and Lebret(1997)]{gl97}
+			El Ghaoui, L., H. Lebret (1997)
+			Robust solutions to least-squares problems with uncertain data. {\it SIAM Journal on Matrix Analysis and Applications} 18(4):1035--1064.
+			
+			\bibitem[El Ghaoui et~al.(1998)]{gol98}
+			El Ghaoui, L., F. Oustry, H. Lebret (1998)
+			Robust solutions to uncertain semidefinite programs. {\it SIAM Journal on Optimization} 9:33--53.
+
+
+			\bibitem[Hadjiyiannis et~al.(2011)]{hgk11}
+			Hadjiyiannis, M., P. Goulart, D. Kuhn (2011)
+			A scenario approach for estimating the suboptimality of linear decision rules in two-stage robust optimization.
+			{\it 50th IEEE Conference on Decision and Control and European Control Conference (CDC-ECC)}, Orlando, USA (IEEE, Piscataway, NJ), 7386--7391.			
+			
+			\bibitem[Hanasusanto et~al.(2014)]{hkw14}
+			Hanasusanto, G., D. Kuhn, W. Wiesemann (2014)
+			{\it K}-adaptability in two-stage robust binary programming.
+			{\it Operations Research} 63(4):877--891.
+			
+			\bibitem[Huynh et~al.(1992)]{hll92}
+			Huynh, T., C. Lassez, J.-L. Lassez (1992)
+			Practical issues on the projection of polyhedral sets.
+			{\it Annals of Mathematics and Artificial Intelligence} 6:295--316.
+			
+			
+			
+			\bibitem[Fourier(1826)]{f26}
+			J. Fourier (1826)
+			{R}eported in: {A}nalyse des travaux de l{'}{A}cad\'emie {R}oyale des {S}ciences, pendant l{'}ann\'ee 1824, {P}artie math\'ematique. {\it {{H}istoire de l{'}{A}cademie {R}oyale des {S}ciences de l{'}Institut de {F}rance}} 7:47--55.
+			
+			
+			
+			\bibitem[Goh and Sim(2009)]{gs09}
+			Goh, J., M. Sim (2009)
+			Robust optimization made easy with ROME. {\it Operations Research} 59(4):973--985.
+			
+			\bibitem[Goh and Sim(2010)]{gs10}
+			Goh, J., M. Sim (2010)
+			Distributionally robust optimization and its tractable approximations. {\it Operations Research} 58(4):902--917.
+			
+			\bibitem[Gorissen et~al.(2014)]{gbbd14}
+			Gorissen, B., A. Ben-Tal, H. Blanc, D. den Hertog (2014)
+			Deriving robust and globalized robust solutions of uncertain linear programs with general convex uncertainty sets. {\it Operations Research} 62(3):672--679.
+			
+			\bibitem[Gorissen and den Hertog(2013)]{gd13}
+			Gorissen, B., D. den Hertog (2013)
+			Robust counterparts of inequalities containing sums of maxima of linear functions. {\it European Journal of Operational Research} 227(1):30--43.
+	
+			\bibitem[Iancu et~al.(2013)]{iss13}
+	         Iancu, D., M. Sharma, M. Sviridenko (2013)
+         	Supermodularity and affine policies in dynamic robust optimization. {\it Operations Research} 61(4):941--956.		
+			
+			
+			\bibitem[Kali and Wallace(1995)]{kw95}
+			Kali, P., S. Wallace (1995)
+			{\it Stochastic Programming}.  John Wiley \& Sons.
+			
+			\bibitem[Kong et~al.(2013)]{kltz13}
+			Kong, Q., C. Lee, C. Teo, Z. Zheng (2013)
+			Scheduling arrivals to a stochastic service delivery system using copositive cones. {\it Operations Research} 61(3):711--726.
+			
+			
+			\bibitem[Kuhn et~al.(2011)]{kwg11}
+			Kuhn, D., W. Wiesemann, A. Georghiou (2011)
+			Primal and dual linear decision rules in stochastic and robust optimization. {\it Mathematical Programming} 130(1):177--209.
+			
+			
+			\bibitem[Mak et~al.(2014)]{mrz14}
+			Mak, H., Y. Rong, J.  Zhang (2014)
+			Appointment scheduling with limited distributional information. {\it Management Science} 61(2): 316--334.
+			
+			\bibitem[Minoux(2011)]{m11}
+			M. Minoux (2011)
+			On 2-stage robust LP with RHS uncertainty: complexity results and applications. {\it Journal of Global Optimization} 49:521–-537.
+
+			
+			\bibitem[Motzkin(1936)]{m36}
+			T. Motzkin (1936)
+			{\it Beitr\"age zur Theorie der linearen Ungleichungen}, University Basel Dissertation. Jerusalem, Israel.
+
+			\bibitem[Mutapcic and Boyd(2009)]{mb09}
+			Mutapcic, A., S. Boyd (2009)
+			Cutting-set methods for robust convex optimization with pessimizing oracles. {\it Optimization Methods and Software} 24(3):381--406.	
+
+			
+			\bibitem[{Paulraj and Sumathi(2010)}]{ps10}
+			Paulraj, S., P. Sumathi  (2010)
+			A comparative study of redundant constraints identification methods in linear programming Problems. {\it Mathematical Problems in Engineering}, vol. 2010. 
+			
+			
+			\bibitem[Popescu(2007)]{p07}
+			Popescu, I. (2007)
+			Robust mean-covariance solutions for stochastic optimization. {\it Operations Research} 55(4):98--112.
+			
+			\bibitem[Postek and den Hertog(2016)]{pd16}
+			Postek, K., D. den Hertog (2016)
+			Multi-stage adjustable robust mixed-integer optimization via iterative splitting of the uncertainty set, {\it INFORMS Journal on Computing} 28(3):553--574.
+			
+			
+			\bibitem[Shapiro and Ahmed(2004)]{sa04}
+			Shapiro, A., S. Ahmed (2004)
+			On a class of minimax stochastic programs. {\it SIAM Journal on Optimization} 14(4):1237--1249.
+			
+			\bibitem[Shapiro and Kleywegt(2002)]{sk02}
+			Shapiro, A.,  A. Kleywegt (2002)
+			Minimax analysis of stochastic programs.
+			{\it Optimization Methods and Software} 17(3):523--542.
+			
+			
+			\bibitem[Scarf(1958)]{scarf58}
+			Scarf, H. (1958)
+			A min-max solution of an inventory problem. K. Arrow, ed. {\it Studies in the Mathematical Theory of Inventory and Production.} Stanford University Press, Stanford, CA, 201--209.
+			
+			\bibitem[See and Sim(2009)]{ss09}
+			See, C.-T., M. Sim (2009)
+			Robust approximation of multiperiod inventory management.  {\it Operations Research} 58(3):583--594.
+			
+			
+			\bibitem[Vayanos et~al.(2012)]{vkr11}
+			Vayanos, P., D. Kuhn, B. Rustem (2011)
+			Decision rules for information discovery in multi-stage stochastic programming. {\it Proceedings of the 50th IEEE Conference on Decision and Control and European Control Conference} 7368--7373.
+			
+			\bibitem[Wiesemann et~al.(2014)]{wks14}
+			Wiesemann, W., D. Kuhn, M. Sim (2014)
+			Distributionally robust convex optimization. {\it Operations Research} 62(6):1358--1376.
+			
+			\bibitem[{Xu and Burer(2016)}]{xb16}
+			Xu, G., S. Burer  (2016)
+			A copositive approach for two-stage adjustable robust optimization with uncertain right-hand sides. Available at: { \url{arxiv.org/pdf/1609.07402v1.pdf}}.			
+			
+			\bibitem[Xu and Mannor(2012)]{xm12}
+			Xu, H., S. Mannor (2012)
+			Distributionally robust Markov decision processes. {\it Mathematics of Operations Research} 37(2):288--300.
+			
+			\bibitem[{\v Z}{\'a}{\v c}kov{\'a}(1966)]{z66}
+			{\v Z}{\'a}{\v c}kov{\'a}, J. (1966)
+			On minimax solution of stochastic linear programming problems.
+			{\it {\v C}asopis pro P{\v e}sto\'{v}an\'{i} Matematiky},
+			91:423--430.
+			
+			\bibitem[Zhen and den Hertog(2017)]{zd17b}
+			Zhen, J. and D. den Hertog (2017)
+			Computing the maximum volume inscribed ellipsoid of a polytopic projection. {\it INFORMS Journal on Computing}, 30(1):31-42.
+			
+			
+			\bibitem[Zhen and den Hertog(2017)]{zd17}
+			Zhen, J. and D. den Hertog (2017)
+			Centered solutions for uncertain linear equations. {\it Computational Management Science}, 14(4):585--610.
+
+		
+			
+		\end{thebibliography}
+	
+
+\newpage
+		\textbf{Jianzhe Zhen} is a final year PhD student at the Department of Econometrics and Operations Research at Tilburg University. His research is focused on robust optimization. He won the Student Best Paper Prize for this paper at the Computational Management Science 2017 conference in Bergamo. \\
+		
+		\textbf{Dick den Hertog} is professor of Business Analytics \& Operations Research at Tilburg University.
+		His research interests cover various fields in prescriptive analytics, in particular linear and nonlinear optimization. In recent years his main focus has been on robust optimization and simulation-based optimization. He is also active in applying the theory in real-life applications. In particular, he is interested in applications that contribute to a better society. For many years he has been involved in research to optimize water safety, he is doing research to develop better optimization models and techniques for cancer treatment, and recently he got involved in research to optimize the food supply chain for World Food Programme. In 2000 he received the EURO Best Applied Paper Award, together with Peter Stehouwer (CQM). In 2013 he was a member of the team that received the INFORMS Franz Edelman Award.\\
+		
+		\textbf{Melvyn Sim} is a professor at the Department of Analytics \& Operations, NUS Business school. His research interests fall broadly under the categories of decision making and optimization under uncertainty with applications ranging from finance, supply chain management, healthcare to engineered systems.
+		
+		
+		%----------------------------------------------------------------------------------------
+		
+	\end{document} 

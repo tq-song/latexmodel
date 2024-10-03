@@ -1,0 +1,29 @@
+%%
+%% This is file `my1mtt.fd',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% mtfonts.fdd  (with options: `MY1mtt,mtplus')
+%% 
+%% Copyright 1996 1997 Frank Mittelbach and David Carlisle.
+%%
+%% Development of this package was commissioned by Y&Y Inc.
+%% http://www.yandy.com
+%% This package may be distributed under the terms of the LaTeX Project Public
+%% License, as described in lppl.txt in the base LaTeX distribution.
+%% Either version 1.0 or, at your option, any later version.
+%%
+\ProvidesFile{my1mtt.fd}
+ [1997/03/14 v1.0c
+ Mathtime Encoding 1
+  (FMi)]
+\DeclareFontFamily{MY1}{mtt}{\skewchar\font45}
+\DeclareFontShape{MY1}{mtt}{m}{it}{<->MTMI}{}
+\DeclareFontShape{MY1}{mtt}{b}{it}{<->MTMIB}{}
+\DeclareFontShape{MY1}{mtt}{ub}{it}{<->MTMIH}{}
+\DeclareFontShape{MY1}{mtt}{b}{n} {<->MTMUB}{}
+\DeclareFontShape{MY1}{mtt}{ub}{n}{<->MTMUH}{}
+\endinput
+%%
+%% End of file `my1mtt.fd'.
